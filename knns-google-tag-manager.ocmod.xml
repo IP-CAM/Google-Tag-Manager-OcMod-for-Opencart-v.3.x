@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id><![CDATA[Google Tag Manager (Default & Journal3)]]></id>
+	<name><![CDATA[Google Tag Manager (Default & Journal3)]]></name>
+	<code>knns-google-tag-manager</code>
+	<version>1.0.0</version>
+	<author><![CDATA[<font color="#7F458C"><b>kanenas.net (aka Nikolas Branis)</b></font> - nbran@kanenas.net]]></author>
+	<link>https://kanenas.net/</link>
+	<file path="catalog/view/theme/*/template/common/header.twig" error="log">
+		<operation error="skip">
+			<search><![CDATA[</head>]]></search>
+			<add position="before"><![CDATA[
+{# kanenas: knns-google-tag-manager.ocmod.xml (start) << #}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXXX');</script>
+<!-- End Google Tag Manager -->
+{# kanenas: knns-google-tag-manager.ocmod.xml (end) << #}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/default/template/common/header.twig" error="log">
+		<operation error="skip">
+			<search><![CDATA[<body>]]></search>
+			<add position="after"><![CDATA[
+{# kanenas: knns-google-tag-manager.ocmod.xml (start) << #}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{# kanenas: knns-google-tag-manager.ocmod.xml (end) << #}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/journal3/template/common/header.twig" error="log">
+		<operation error="skip">
+			<search><![CDATA[<body class="{{ class }}">]]></search>
+			<add position="after"><![CDATA[
+{# kanenas: knns-google-tag-manager.ocmod.xml (start) << #}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{# kanenas: knns-google-tag-manager.ocmod.xml (end) << #}
+			]]></add>
+		</operation>
+	</file>
+</modification>
